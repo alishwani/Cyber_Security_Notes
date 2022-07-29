@@ -1,0 +1,16 @@
+Enumeration Techniques 
+1- Performing Network Enumeration Using SuperScan
+Launch Superscan application. Enter Hostname/IP/URL of the target to scan. Then click enumerae. Review the result for anylsis.
+###Enumerating Resources in Local Machine using Hyena###
+2- Enumerating Resources in Local Machine using Hyena
+launch Hyena.exe from the network share "z:\" And follow syteps to install Hyena. 
+Click "+" node on the local workstation, then expand "Users", "Services" to chedck for running services, Users Rights to check for user rights, Scheduled Jobs to analysis scheduled jobs.
+
+###Enumerating Services on a Target Machine###
+3- Enumerating Services on a Target Machine
+Requirements 
+Kali Linux, Windows Server 2012/2016
+>. In Kali Linux Launch nmap and run command, nmap -sP <ip address range> (performs ping sweep), nmap -sS <ip address of Win. Server 2012>, nmap -sSV -O <ip address of win. Server 2012>,
+nmap -sSV -O <win. Server 2012 ip address> -oN enumeration.txt (saving the result to a text file). 
+
+### LDAP Enumeration using Active Directory Explorer (ADExplorer). 
