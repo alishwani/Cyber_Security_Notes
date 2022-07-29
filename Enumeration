@@ -13,4 +13,18 @@ Kali Linux, Windows Server 2012/2016
 >. In Kali Linux Launch nmap and run command, nmap -sP <ip address range> (performs ping sweep), nmap -sS <ip address of Win. Server 2012>, nmap -sSV -O <ip address of win. Server 2012>,
 nmap -sSV -O <win. Server 2012 ip address> -oN enumeration.txt (saving the result to a text file). 
 
-### LDAP Enumeration using Active Directory Explorer (ADExplorer). 
+###LDAP Enumeration using Active Directory Explorer (ADExplorer)###
+4- LDAP Enumeration using Active Directory Explorer (ADExplorer)
+Launch ADExplorer from the network share on windows server 2016. Then enter ip address of Windows Server 2012 to explore. This will show data about active directory
+the server 2012 is connected to. Expand DC=CEH,DC=com and CN=Users to explore domain user details, check out any user names and right click any attribute and click Modify
+modify attribute windows appear. 
+
+###Enumerating Information from Windows and Samba Host using Enum4linux###
+5- Enumerating Information from Windows and Samba Host using Enum4linux
+Requirements 
+ Kali Linux, Windows Server 2016
+ >. In Kali Linux type, enum4linux -h, enum4linux -u martin -p apple -U <ip address> (used to list user option)
+ enum4linux -u martin -p apple -o <ip address> (OS information)
+ enum4linux -u martin -p apple -P <ip address> (password policy)
+ enumb4linux -u martin -p apple -G <ip address> (Group Policy)
+ enumb4linux -u martin -p apple -S <ip address> (Share Policy)
