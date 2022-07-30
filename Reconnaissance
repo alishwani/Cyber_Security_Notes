@@ -1,0 +1,31 @@
+###Open source Information Gathering using Windows Command Line Utilities###
+1- Open source Information Gathering using Windows Command Line Utilities
+>. From CMD on windows server "ping <domain name>"
+>. ping example.com -f -l 1500
+>. ping example -f -l 1300
+>. ping example.com -f -l 1473
+>. ping example.com -i 3
+>. tracert example.com
+>. ping example.com -i 2 -n 1
+>. ping example.com -i 4 -n 1
+>. ping example.com -i 14 n 1
+>. nslookup, set type=a, set type=cname, exploit Authoritave name server then run set type=a. 
+
+###Using the Open-Source Reconnaissance Tool Recon-ng to Gather Personnel Information###
+2-Using the Open-Source Reconnaissance Tool Recon-ng to Gather Personnel Information
+Requirements 
+Kali Linux
+>. type recon-ng, then worksapce add reconnaissance, then "load recon/domains-contacts/whois_pocs", then show info, set SOURCE Linkedin.com, run, then type "back", then
+recon/profiles-profiles/namechk, set SOURCE alimohammed, run. 
+>. type load reporting/html, set FILENAME recon.html, set CREATOR Johndoe, set CUSTOMER Bill Gates, run. 
+
+###Open Source Intel. Gathering using OSRFramework###
+3- Open Source Intel. Gathering using OSRFramework
+apt update && apt -y install osrframework
+>. usufy.py -n Bill Gates -p twitter facebook youtube
+>. searchfy.py -q google.com
+###theHarvester###
+4- theHarvester
+>. theharvester -d google.com -l 300 -b all
+>. theharvester -d google.com -l 300 -b all -f test
+
