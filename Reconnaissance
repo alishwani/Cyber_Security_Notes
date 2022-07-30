@@ -21,6 +21,8 @@ recon/profiles-profiles/namechk, set SOURCE alimohammed, run.
 
 ###Open Source Intel. Gathering using OSRFramework###
 3- Open Source Intel. Gathering using OSRFramework
+Requirements 
+Kali Linux
 apt update && apt -y install osrframework
 >. usufy.py -n Bill Gates -p twitter facebook youtube
 >. searchfy.py -q google.com
