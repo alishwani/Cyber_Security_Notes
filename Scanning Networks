@@ -38,3 +38,35 @@ Non-TCP scans = None
 Timing Template = Aggressive (-T4)
 Enable All advanced/aggressive options (-A) = Checked 
 Save Changes 
+
+###Explooing Various Network Scanning Techniques###
+
+Objectives: 
+TCP connect Scan
+Xmas Scan
+ACK Flag Scan
+UDP Scan
+IDLE Scan
+###################################
+TCP Connect Scan (-sT) with Aggressive scan (-A)
+
+nmap -sT -T3 -A <IP address> 
+
+Xmas scan 
+nmap -sX -T4 <IP Address of the target> 
+
+
+ACK Flag Scan 
+
+nmap -sA -v -T4 <IP address> 
+
+UDP Scan 
+nmap -sU -T5 <IP address> 
+
+IDLE Scan
+
+nmap -Pn -p 80 -sI  <IP address> 
+
+Scanning subnet for alive systems 
+
+nmap -sP subnet range
