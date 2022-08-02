@@ -1,0 +1,14 @@
+
+1- Footprinting a Web Server using the httprecon tool
+Install and launch httprecon
+Input the website name into Targget section and input the port number (e.g, 80, 443)
+
+2- Uniscan Web Server Fingerprinting in Kali Linux 
+Choose Wampserver64 in Windows 
+
+Launch uniscan -h in kali 
+uniscan -h 
+uniscan -u <http://example.com/oscp> -q
+The result of the scan gets saved to /usr/share/uniscan/report
+
+3- Cracking FTP Credentials using Dictionary Attack 
