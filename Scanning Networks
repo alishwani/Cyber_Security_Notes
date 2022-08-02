@@ -1,0 +1,40 @@
+###UDP and TCP Packet Crafting Techniques using HPING3###
+1- UDP and TCP Packet Crafting Techniques using HPING3
+Requirements
+Kali Linux & Windows 10 
+
+hping3 -c 3 <IP address of the target>  
+Note: -c 3 means we are sending 3 packets
+
+hping3 --scan 1-3000 -S <Target IP Address> 
+Note: -S represents SYN flag.
+
+hping3 <IP address of the target machine> --udp --rand-source --data 500
+
+hping3 -S <IP address of the target machine> -p 80 -c 5
+
+hping3 <IP address of the target machien> --flood
+
+###Understanding Network Scanning Using Nmap###
+1- Understanding Network Scanning Using Nmap 
+
+nmap -O 10.10.10.*
+
+Note: OS details the OS type, device type, and open ports
+
+nmap --packet-trace <IP address> 
+
+Slow Comprehensive Scan from Zenmap GUI
+
+nmap <Slow Comprehensive Scan> 
+
+To Perform a Null scan, we create a new profile
+
+Profile ---> New Profile or Commands 
+
+Profile tab ---> profile name Null Scan. On the scan tab, select: 
+TCP scan = Null scan (-sN)
+Non-TCP scans = None
+Timing Template = Aggressive (-T4)
+Enable All advanced/aggressive options (-A) = Checked 
+Save Changes 
