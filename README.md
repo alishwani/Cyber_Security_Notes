@@ -1,2 +1,2 @@
 # Cyber_Security_Notes
-This repository can be used for CEH exam
+These are educational notes can be used for learning how to hack. 
