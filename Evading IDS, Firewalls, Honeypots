@@ -1,1 +1,46 @@
+###Detecting Intrusion Using Snort###
+Install and Launch Snort.exe
+By Default, Snort folder is created in C:\Snort. In etc folder, copy snort.conf from C:\snort\snortrules\etc to c:\Snort\etc
+Then copy so_rules folder from folder Snort\snortrules to C:\Snort. 
+Then copy preproc_rules folder from folder Snort\snortrules to C:\Snort by replacing the exisiting preproc_rules in c:\Snort.
+
+Then copy rules folder from folder Snort\snortrules to C:\Snort. 
+Open CMD in c:\Snort\bin folder, then type snort. 
+Type "snort -W" to view Physical Address, IP Address, and Ethernet Drivers, and all disabled by default.
+To enable the Ethernet Driver, type "snort -dev -i 1" 
+leave CMD open and launch another CMD windows and type "ping google.com". This ping command will trigger a Snort alert inn the Snort command prmpt with rapid scrolling text.
+
+###Detecting Intruders and Worms using KFSensor Honeypot IDS###
+
+
+### Bypassing Windows Firewall using Nmap Evasion Techniques###
+
+nmap -v -sS -T5 IP Address of the victim
+
+-v = verbose
+-sS = TCP SYN 
+-T5 = time template to perform scan
+
+nmap -v -sS -f -T5 IP address of the vicitm machine
+
+-f = Cause the requested scan (including ping scans) to use tiny fragmented IP packets to be sent to the victim machine.
+
+nmap -v -sS -f --mtu 32 -T5 IP Address of the victim machine
+--mtu 32 = means the packet size is 32 bytes
+
+nmap -v -sS -f --mtu 32 --send-eth -T5 IP address of the victim machine.
+
+--send-etho = ensures that Nmap actually sends Ethernet levle packets, and will bypass the IP layer and send raw Ethernet frames within the traffic.
+
+nmap -v -sS -f --mtu 32 --send-eth --data-length 500 -T5 IP address of the vicitm
+
+data length up to 500
+
+nmap =v -sS -f --mtu 32 --send-eth --data-length 50 --source-port 99 -T5 IP Address of the victim machine
+
+--source-port is used to spoof the source port number.
+
+### Bypassing Firewall Rules using HTTP/FTP Tunneling###
+
+###Bypassing Windows Firewall using Metasploit###
 
