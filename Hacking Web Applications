@@ -1,0 +1,8 @@
+###Exploiting Parameter Tampering and XSS Vulnerabilities in Web Applications###
+
+visit http://www.example.com
+
+In the login page, enter username: john, password: test
+After login, vie Profile. After redirecting to the profile page for John, you see there is "ID" in the url data is setto a number.
+
+Now try to change the ID from 2 to 1 and press Enter, you will be redirected to another user profile called "Sam". Now try other ID numbers, you get different user profiles. 
