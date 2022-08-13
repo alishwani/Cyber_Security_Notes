@@ -1,0 +1,25 @@
+Session Hijacking using the Zed Attack Proxy (ZAP)
+
+We need to configure proxy settings uing Chrome. Open Settings and choose Open Proxy settings. Under Connection in the Internet Properties click LAN Settings and check 
+
+use proxy server for you LAN option add your proxy IP Address and Port and click ok. 
+
+Now open your OWASP-ZAP, in the ZAP portal click on the "+" and choose "BreaK" tab. the Break tab allows you to modify response or request when it has been caught by the ZAP.
+
+
+To configure ZAP as a proxy, click Settings icon from the tool bar. In the options windows, select Local Proxies from the left pane, in the address field. Type the IP 
+Address and port number (Note: it should match your chrome proxy ip and  and port) and click Ok. 
+
+Click "Set break on all requests and responses" from the tool bar of ZAP. You can choose "Step", "Continue", or "Drop". 
+
+Now switch back to Chrome browser, type www.example.com in the address bar and press Enter. Click :> and "Get" request of the browse website in the victim machine.
+
+Now switch back to the ZAP and observe the "Breack" tab. Now you can modify and manipuate the requests and send it back to the server. 
+
+
+###Perform sslstrip and Intercept HTTP Traffic through BetterCAP###
+
+In this scanerio, we perform traffic intercept using bettercap tool in Kali. 
+
+bettercap -X -l eth0 -T <IP address of the victim> --proxy -p POST 
+* This will intercept POST activity from IP address of the Victim. 
