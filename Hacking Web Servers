@@ -12,3 +12,11 @@ uniscan -u <http://example.com/oscp> -q
 The result of the scan gets saved to /usr/share/uniscan/report
 
 3- Cracking FTP Credentials using Dictionary Attack 
+First, perform an Nmap scan. 
+nmap -p 21 <ip address>
+If you find an ftp port open then test it by connecting to it using: ftp <IP address>, enter user name and pass 
+
+To brute force the ftp login, use hydra tool in Kali linux. 
+hydra -L /root/Wordlists/usernames.txt -P /root/Wordlists/Passwords.txt ftp://<IP address> 
+* Hydra will try all different combination trying to guess the right username/password credentials. 
+Once you obtain the correct credentials, you can type help for all the commands that you can run on the ftp server. 
