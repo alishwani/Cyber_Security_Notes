@@ -1,0 +1,83 @@
+###Buidliing a Cloud using ownCloud and LAMPServer###
+
+lanuch "ownCloud Desktop Client" or can be installed from http://owncloud.org/install 
+*You can install the client using Windows or Linux. 
+In Linux we can run these command:
+sudo su
+apt-get update
+apt-get install lamp-server^
+Then install more.
+
+apt-get install libapache2-mod-php7.0 php7.0-mbstring php7.0-curl php7.0-zip php7.0-gd  php7.0-mysql  php7.0-mycrypt
+apt-get install php-xml
+wget -nv  https://download.owncloud.org/download/repositories/production/Ubuntu_16.04/Release.key -O Release.key AND hit Enter.
+apt-key add - < Release.key>. We should see and "Ok". 
+
+echo 'deb http://download.owncloud.org/download/repositories/production/Ubuntu_16.04/ /' > /etc/apt/sources.list.d/owncloud.list
+
+apt-get update
+apt-get install owncloud-files
+
+mv /var/www/owncloud /var/www/html
+chown -R www-data:www-data /var/www/html/owncloud
+mysql_secure_installation
+
+We put 0 for low security 
+Remove anonymous users? type No
+Disallow root login remotely? No 
+Remove test database and access to it? No
+Reload privilege tables now? type yes
+
+mysql -u root -p 
+type password (toor) 
+
+CREATE DATABASE owncloud;
+type Enter
+
+Grant ALL PRIVILEGES ON owncloud.* TO 'owncloud'@'localhost' IDENTIFIED BY 'test@';
+type Enter
+FLUSH PRIVILEGE
+type Enter
+exit
+Now issue the command. 
+
+service apache2 restart
+"2enmod rewrite"
+Type Enter
+touch /etc/apache2/sites-available/owncloud.conf
+type Enter
+ln -s /etc/apache2/sites-available/owncloud-conf /etc/apache2/sites-enabled/owncloud.conf
+
+gedit /etc/apache2/sites-available/owncloud.conf
+type the following to the file: 
+<VirtualHost *:80>
+ServerAdmin root@ubuntu
+DocumentRoot "/var/www/html/owncloud/"
+ServerName <IP of the server>
+ServerAlias ubuntu
+<Directory "/var/www/html/owncloud/">
+Options FollowSymLinks
+AllowOverride All
+Order allow,deny
+allow for all
+</Directory>
+ErrorLog /var/log/apache2/owncloud-error_log
+CustomLog /var/log/apach2/owncloud-access_log common
+</VirtualHost>
+-------------------------------------------------------
+
+gedit /etc/apache2/apache2.conf
+
+Comment out  by adding # to the line. IncludOptional sites-enabled/*.conf
+
+systemctl restart apache2.service
+
+Now option a browser, and type localhost/owncloud/idex.php
+user/ admin
+pass/ qwerty@123
+
+Configuration the database and finish the setyup 
+database username root
+password toor
+owncloud
+localhost
