@@ -81,3 +81,19 @@ database username root
 password toor
 owncloud
 localhost
+
+###Securing ownCloud from Malicious File Uploads using ClamAV###
+sudo su
+
+apt-get install clamav clamav-daemon
+
+sed -i -e "s/^NotifyClamd/#NotifyClam/g" /etc/clamav/freshclam.conf
+
+netstat -a | grep clam
+
+service apache2 restart
+systemctl enable clamav-daemon.service
+systemctl start clamav-daemon.service
+
+http://localhost/owncloud/
+user/pass: admin/qwerty@123
